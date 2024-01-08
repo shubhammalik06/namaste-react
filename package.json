@@ -1,0 +1,22 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Practising react",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhammalik06/namaste-react.git"
+  },
+  "author": "Shubham Malik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhammalik06/namaste-react/issues"
+  },
+  "homepage": "https://github.com/shubhammalik06/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
+}
