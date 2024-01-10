@@ -1,8 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import MainComponent from "./components/main/MainComponent";
+import './index.scss';
 
-const heading = React.createElement("h1", {}, "Hello World from React!");
+// App layout
+// header
+    // - logo, nav items - Home, about, contact, support
+// body
+    // - 
+// footer
+    // copy-right, social-media, about
+
+
+const AppLayout = () => {
+    return (
+        <div className="app">
+          <MainComponent />
+        </div>
+    )
+};
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(heading);
+root.render(<AppLayout />);

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Practising react",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -16,11 +18,14 @@
   },
   "homepage": "https://github.com/shubhammalik06/namaste-react#readme",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
     "parcel": "^2.11.0",
     "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-bootstrap": "^2.9.2",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.7"
   }
 }
