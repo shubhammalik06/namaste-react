@@ -1,0 +1,15 @@
+.body {
+    margin: 20px 0px;
+
+    .filter {
+        .filter-btn {
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+
+    .restaurants {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

@@ -1,5 +1,6 @@
-import "../header/header.scss";
+import "./header.scss";
 import logo from "../../assets/image/logo.png";
+import NavBar from "./NavBar/navBar";
 
 const HeaderComponent = () => {
   return (
@@ -9,14 +10,10 @@ const HeaderComponent = () => {
           <img className="logo-image" src={logo} />
         </div>
 
-        <div className="nav-items">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-                <li>Support</li>
-            </ul>
+        <div>
+            <NavBar />
         </div>
+        
       </div>
     </>
   );

@@ -1,4 +1,6 @@
 # Practising React with Namaste Javascript tutorials
+# No copyright infringement.
+# using resources/URL for learning purpose only.
 
 # Parcel
 - Dev Build
