@@ -1,7 +1,7 @@
 import "./restaurant.scss";
 
 const Restaurant = (props) => {
-  const {URL, name, type_of_food, rating } = props.props;
+  const { URL, name, type_of_food, rating } = props.props;
   return (
     <div className="restaurant-container">
       <div className="restaurant-logo">
@@ -12,7 +12,6 @@ const Restaurant = (props) => {
       <div className="restaurant-rating">{rating} stars</div>
       <div></div>
     </div>
-
   );
 };
 

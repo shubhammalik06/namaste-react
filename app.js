@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import MainComponent from "./components/main/MainComponent";
+import MainComponent from "./src/components/main/MainComponent";
 import './index.scss';
 
 // App layout
