@@ -2,7 +2,14 @@
     margin: 20px 0px;
 
     .filter {
+        display: flex;
+        
         .filter-btn {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .reset-btn{
             margin: 10px;
             padding: 10px;
         }

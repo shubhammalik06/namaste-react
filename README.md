@@ -18,3 +18,7 @@
 - Diagnostics
 - Error Handling
 - Tree shaking : remove unsed code
+
+
+# Reconciliation Algorith(React Fiber)
+- New way of finding the div and updating the DOM.
