@@ -1,6 +1,5 @@
 import Restaurant from "./Restaurant/restaurant";
 import "./bodyComponent.scss";
-import * as restaurantDetails from "../../assets/JSON/restaurant.json";
 import { useState, useEffect, useRef } from "react";
 
 const Body = () => {
@@ -8,9 +7,7 @@ const Body = () => {
     []
   );
 
-  const [formatedData, setformatedData] = useState(
-    []
-  );
+  const [formatedData, setformatedData] = useState([]);
 
   const countRef = useRef(formatedData);
 
@@ -30,7 +27,7 @@ const Body = () => {
       ...(key === search ? [value] : getValues(value, search)),
       ...(next ? getValues(rest, search) : []),
     ];
-  }
+  };
 
   const formatApiData = async (json) => {
     let data = await getValues(json, "info");
@@ -54,13 +51,17 @@ const Body = () => {
     setListOfFilteredRestaurants(formatedData);
   };
 
-  return listOfFilteredRestaurants.length === 0 ? (<h1>Loading.....</h1>) : (
+  return listOfFilteredRestaurants.length === 0 ? (
+    <h1>Loading.....</h1>
+  ) : (
     <div className="body">
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-            let filteredList = listOfFilteredRestaurants.filter((x) => x.avgRating > 4.3);
+            let filteredList = listOfFilteredRestaurants.filter(
+              (x) => x.avgRating > 4.3
+            );
             setListOfFilteredRestaurants(filteredList);
           }}
         >
