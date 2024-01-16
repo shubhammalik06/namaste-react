@@ -22,3 +22,7 @@
 
 # Reconciliation Algorith(React Fiber)
 - New way of finding the div and updating the DOM.
+
+# 2 Types of routing in web apps
+- Client Side Routing : Normal react routing where no network call is done and all the code is in the app.
+- Server Side Routing : When you clicks on a route, network call is made and the html comes from the server and renders on the web app.

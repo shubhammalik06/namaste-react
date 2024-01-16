@@ -1,6 +1,8 @@
 import Restaurant from "./Restaurant/restaurant";
 import "./bodyComponent.scss";
 import { useState, useEffect, useRef } from "react";
+import useFilterData from "../../assets/common/useFilterData";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [listOfFilteredRestaurants, setListOfFilteredRestaurants] = useState(
@@ -15,29 +17,29 @@ const Body = () => {
     fetchData();
   }, [countRef]);
 
-  const getValues = (source, search) => {
-    if (typeof source !== "object") {
-      return [];
-    }
+  // const getValues = (source, search) => {
+  //   if (typeof source !== "object") {
+  //     return [];
+  //   }
 
-    const [key, next] = Object.keys(source);
-    const { [key]: value, ...rest } = source;
+  //   const [key, next] = Object.keys(source);
+  //   const { [key]: value, ...rest } = source;
 
-    return [
-      ...(key === search ? [value] : getValues(value, search)),
-      ...(next ? getValues(rest, search) : []),
-    ];
-  };
+  //   return [
+  //     ...(key === search ? [value] : getValues(value, search)),
+  //     ...(next ? getValues(rest, search) : []),
+  //   ];
+  // };
 
-  const formatApiData = async (json) => {
-    let data = await getValues(json, "info");
+  // const formatApiData = async (json, filterKey) => {
+  //   let data = await getValues(json, filterKey);
 
-    let data2 = await data.splice(2, data.length);
+  //   let data2 = await data.splice(2, data.length);
 
-    const newMap = new Map();
-    await data2.forEach((item) => newMap.set(item.id, item));
-    return [...newMap.values()];
-  };
+  //   const newMap = new Map();
+  //   await data2.forEach((item) => newMap.set(item.id, item));
+  //   return [...newMap.values()];
+  // };
 
   const fetchData = async () => {
     const data = await fetch(
@@ -46,7 +48,8 @@ const Body = () => {
 
     const json = await data.json();
 
-    const formatedData = await formatApiData(json);
+    const formatedData = useFilterData(json, "info"); // using the custom hook to filterout data -- (json, filterKey)
+
     setformatedData(formatedData);
     setListOfFilteredRestaurants(formatedData);
   };
@@ -78,7 +81,9 @@ const Body = () => {
 
       <div className="restaurants">
         {listOfFilteredRestaurants.map((data) => (
-          <Restaurant key={data.id} props={data} />
+          <Link to={"/restaurants/" + data.id} key={data.id}>
+            <Restaurant props={data} />
+          </Link>
         ))}
       </div>
     </div>

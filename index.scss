@@ -1,0 +1,36 @@
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+
+.restaurant-menu {
+    margin: 20px 0px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .description {
+        word-wrap: break-word;
+    }
+}
+
+.item-logo-container {
+    margin: 10px;
+    border: 1px solid #f0f0f0;
+    width: 220px;
+    height: 300px;
+    padding: 10px;
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+
+        .item-logo-img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+}
