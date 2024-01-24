@@ -1,4 +1,5 @@
 const MenuCard = (props) => {
+
   return props.imageId ? (
     <div className="item-logo-container">
       <div className="image-container">
@@ -11,8 +12,24 @@ const MenuCard = (props) => {
         />
       </div>
       <div>Name : {props.name}</div>
-      <div>Price : Rs. {props.price / 100}/-</div>
-      <div className="description">Description : {props.description}</div>
+      <div>
+        Price : Rs. {props.price ? props.price / 100 : props.defaultPrice / 100}
+        /-
+      </div>
+      <div>
+        Rating :{" "}
+        {props?.ratings?.aggregatedRating?.rating
+          ? props?.ratings?.aggregatedRating.rating
+          : "Not rated"}
+      </div>
+      {props.description ? (
+        <>
+          <br />
+          <div className="description">Description : {props.description}</div>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   ) : (
     <></>

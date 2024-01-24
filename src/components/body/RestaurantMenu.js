@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useFilterData from "../../assets/common/useFilterData";
 import MenuCard from "./ResCard";
 import { useParams } from "react-router-dom";
+import Shimmer from "../../assets/common/Shimmer";
 
 const RestaurantMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -25,7 +26,7 @@ const RestaurantMenu = () => {
   };
 
   return menuItems.length === 0 ? (
-    <h1>Loading.....</h1>
+   <Shimmer />
   ) : (
     <div className="restaurant-menu">
       {menuItems.map((item) => (

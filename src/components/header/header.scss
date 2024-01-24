@@ -1,31 +1,6 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #000000;
-
-    .logo {
-        width: 100px;
-        display: flex;
-        justify-content: center;
-
-        .logo-image {
-            width: 70px;
-            height: 70px;
-        }
-    }
-
-    .login-btn {
-        cursor: pointer;
-        padding: 0 10px;
-        margin: 20px;
-    }
-}
 
 .nav-items {
     ul {
-        display: flex;
-        list-style-type: none;
 
         li {
             padding: 10px;

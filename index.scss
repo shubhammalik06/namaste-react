@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -19,7 +23,7 @@ a {
     margin: 10px;
     border: 1px solid #f0f0f0;
     width: 220px;
-    height: 300px;
+    height: 70vh;
     padding: 10px;
 
     .image-container {

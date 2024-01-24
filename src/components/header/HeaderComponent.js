@@ -1,5 +1,5 @@
 import "./header.scss";
-import logo from "../../assets/image/logo.png";
+import { LOGO_IMG } from "../../assets/common/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Search from "../header/Search/Search";
@@ -9,13 +9,15 @@ const HeaderComponent = () => {
 
   return (
     <>
-      <div className="header">
-        <div className="logo">
-          <img className="logo-image" src={logo} />
+      <div className="flex justify-between items-center shadow-lg p-2">
+        <div className="flex justify-between w-24">
+          <Link to="/">
+            <img className="w-16 ml-4" src={LOGO_IMG} />
+          </Link>
         </div>
 
         <div className="nav-items">
-          <ul>
+          <ul className="flex list-none">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -25,7 +27,9 @@ const HeaderComponent = () => {
             <li>
               <Link to="/contact">Contact Us</Link>
             </li>
-            <li>Cart</li>
+            <li>
+              <Link to="/grocery">Grocery</Link>
+            </li>
             <li>
               <Search />
             </li>
@@ -33,7 +37,7 @@ const HeaderComponent = () => {
         </div>
 
         <button
-          className="login-btn"
+          className="cursor-pointer px-5 py-2 m-4 bg-cyan-200 rounded-md"
           onClick={() => {
             loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login");
           }}

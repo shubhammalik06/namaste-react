@@ -1,8 +1,9 @@
-import Restaurant from "./Restaurant/restaurant";
+import Restaurant, { withPromotion } from "./Restaurant/restaurant";
 import "./bodyComponent.scss";
 import { useState, useEffect, useRef } from "react";
 import useFilterData from "../../assets/common/useFilterData";
 import { Link } from "react-router-dom";
+import Shimmer from "../../assets/common/Shimmer";
 
 const Body = () => {
   const [listOfFilteredRestaurants, setListOfFilteredRestaurants] = useState(
@@ -12,6 +13,8 @@ const Body = () => {
   const [formatedData, setformatedData] = useState([]);
 
   const countRef = useRef(formatedData);
+
+  const RestaurantPromoted = withPromotion(Restaurant);
 
   useEffect(() => {
     fetchData();
@@ -55,7 +58,7 @@ const Body = () => {
   };
 
   return listOfFilteredRestaurants.length === 0 ? (
-    <h1>Loading.....</h1>
+    <Shimmer />
   ) : (
     <div className="body">
       <div className="filter">
@@ -79,10 +82,14 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="restaurants">
+      <div className="restaurants ml-4">
         {listOfFilteredRestaurants.map((data) => (
           <Link to={"/restaurants/" + data.id} key={data.id}>
-            <Restaurant props={data} />
+            {data.avgRating <= 4.3 ? (
+              <Restaurant props={data} />
+            ) : (
+              <RestaurantPromoted props={data} />
+            )}
           </Link>
         ))}
       </div>
