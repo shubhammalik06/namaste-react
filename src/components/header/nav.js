@@ -5,21 +5,21 @@ import ContactComponent from "../main-components/contact";
 
 const NavigationComponent = () => {
   return (
-    <nav className="mr-8">
-      <ul className="flex justify-end items-center">
-        <li className="p-4">
+    <nav className="m-auto">
+      <ul className="flex justify-center items-center">
+        <li className="p-4 cursor-pointer">
           Home
           {/* <Link to="/"> */}
           {/* <HomeComponent /> */}
           {/* </Link> */}
         </li>
-        <li className="p-4">
+        <li className="p-4 cursor-pointer">
           About
           {/* <Link to="/about"> */}
           {/* <AboutComponent /> */}
           {/* </Link> */}
         </li>
-        <li className="p-4">
+        <li className="p-4 cursor-pointer">
           Contact
           {/* <Link to="/contact"> */}
           {/* <ContactComponent /> */}

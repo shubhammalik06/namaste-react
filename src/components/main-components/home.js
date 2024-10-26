@@ -1,9 +1,12 @@
+import BodyComponent from "./body";
+
 const HomeComponent = () => {
-    return (
-        <>
-            <h1>Welcome to our Home Page</h1>
-        </>
-    );
-}
+  return (
+    <>
+      {/* <BodyComponent /> */}
+      <h1>Home</h1>
+    </>
+  );
+};
 
 export default HomeComponent;
