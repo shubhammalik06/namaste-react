@@ -1,6 +1,6 @@
 const RestaurantCardComponent = ({ resData }) => {
   return (
-    <div className="border-black-color m-1 p-2 bg-slate-300 w-2/12 h-96">
+    <div className="border-black-color m-2 p-2 w-[250px] bg-gray-100 rounded-md hover:bg-gray-200 cursor-pointer">
       <div className="flex justify-center">
         <img
           className="w-52 h-52"
@@ -16,16 +16,9 @@ const RestaurantCardComponent = ({ resData }) => {
         <div>
           {resData.locality}, {resData.areaName}
         </div>
-        {/* <div>{resData.id}</div> */}
         <div>{resData.cuisines[0]}</div>
         <div>{resData.avgRating}</div>
       </div>
-
-      {/* <div className="flex justify-center items-end m-auto h-1">
-        <button className="text-center bg-blue-400 text-white px-5 py-1 cursor-pointer">
-          Book a Table
-        </button>
-      </div> */}
     </div>
   );
 };

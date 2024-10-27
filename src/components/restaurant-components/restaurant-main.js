@@ -2,6 +2,8 @@ import RestaurantCardComponent from "./restaurant-card";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../common/constants";
 import Shimmer from "../../common/Shimmer";
+import useFilterData from "../../common/process-json";
+import { Link } from "react-router-dom";
 
 const RestaurantMainComponent = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -16,32 +18,9 @@ const RestaurantMainComponent = () => {
     const data = await fetch(API_URL);
     const json = await data.json();
     formattedData = useFilterData(json, "info");
+    console.log(formattedData);
     setListOfRestaurants(formattedData);
     setFilteredRestaurants(formattedData);
-  };
-
-  const useFilterData = (json, filterKey) => {
-    const getValues = (source, search) => {
-      if (typeof source !== "object") {
-        return [];
-      }
-
-      const [key, next] = Object.keys(source);
-      const { [key]: value, ...rest } = source;
-
-      return [
-        ...(key === search ? [value] : getValues(value, search)),
-        ...(next ? getValues(rest, search) : []),
-      ];
-    };
-
-    const formatApiData = (data) => {
-      const newMap = new Map();
-      data.slice(2).forEach((item) => newMap.set(item.id, item));
-      return [...newMap.values()];
-    };
-
-    return formatApiData(getValues(json, filterKey));
   };
 
   return listOfRestaurants.length === 0 ? (
@@ -95,9 +74,17 @@ const RestaurantMainComponent = () => {
         </button>
       </div>
 
+      <div className="w-full flex justify-center p-2 pt-11 text-2xl font-semibold">
+        Restaurants Name
+      </div>
+      <hr className="my-4" />
       <div className="flex flex-wrap justify-start items-center w-full h-full">
-        {filteredRestaurants.map((restaurant, i) => (
-          <RestaurantCardComponent key={i} resData={restaurant} />
+        {filteredRestaurants.map((restaurant) => (
+          <Link
+            to={"/restaurant/" + restaurant.id}
+            key={restaurant.id} >
+            <RestaurantCardComponent resData={restaurant}  />
+          </Link>
         ))}
       </div>
     </div>

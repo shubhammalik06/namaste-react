@@ -7,14 +7,7 @@ import BodyComponent from "./src/components/main-components/body";
 import About from "./src/components/main-components/about";
 import Contact from "./src/components/main-components/contact";
 import Error from "./src/components/shared-components/error";
-
-// App layout
-// header
-// - logo, nav items - Home, about, contact, support
-// body
-// -
-// footer
-// copy-right, social-media, about
+import RestaurantMenuComponent from "./src/components/restaurant-components/restaurant-menu";
 
 // const Grocery = lazy(() => import("./src/components/body/Grocery"));
 
@@ -43,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenuComponent />,
       },
     ],
     errorElement: <Error />,
