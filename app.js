@@ -4,12 +4,11 @@ import "./index.scss";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import HeaderComponent from "./src/components/main-components/header";
 import BodyComponent from "./src/components/main-components/body";
-import About from "./src/components/main-components/about";
-import Contact from "./src/components/main-components/contact";
 import Error from "./src/components/shared-components/error";
 import RestaurantMenuComponent from "./src/components/restaurant-components/restaurant-menu";
 
-// const Grocery = lazy(() => import("./src/components/body/Grocery"));
+const About = lazy(() => import("./src/components/main-components/about"));
+const Contact = lazy(() => import("./src/components/main-components/contact"));
 
 const AppLayout = () => {
   return (
@@ -31,11 +30,19 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact />,
+        element: (
+          <Suspense>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "/restaurant/:resId",

@@ -1,4 +1,4 @@
-import RestaurantCardComponent from "./restaurant-card";
+import RestaurantCardComponent, { WithPromotionLabel } from "./restaurant-card";
 import { useEffect, useState } from "react";
 import { API_URL } from "../../common/constants";
 import Shimmer from "../../common/Shimmer";
@@ -9,6 +9,8 @@ const RestaurantMainComponent = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantCardPromoted = WithPromotionLabel(RestaurantCardComponent);
 
   useEffect(() => {
     fetchData();
@@ -80,10 +82,12 @@ const RestaurantMainComponent = () => {
       <hr className="my-4" />
       <div className="flex flex-wrap justify-start items-center w-full h-full">
         {filteredRestaurants.map((restaurant) => (
-          <Link
-            to={"/restaurant/" + restaurant.id}
-            key={restaurant.id} >
-            <RestaurantCardComponent resData={restaurant}  />
+          <Link to={"/restaurant/" + restaurant.id} key={restaurant.id}>
+            {restaurant.avgRating >= 4.5 ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCardComponent resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
