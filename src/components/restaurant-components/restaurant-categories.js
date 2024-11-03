@@ -1,5 +1,4 @@
 import ItemsList from "./items-list";
-import { useState } from "react";
 
 const RestaurantCategories = ({ resMenuInfo, showItems, setShowIndex }) => {
 

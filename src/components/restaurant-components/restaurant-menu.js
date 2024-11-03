@@ -22,15 +22,15 @@ const RestaurantMenuComponent = () => {
     const data = await fetch(RESTAURANT_MENU + resId);
     const json = await data.json();
 
-    const categories = await
-      json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    const categories =
+      await json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (c) =>
           c.card?.card?.["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
 
     setCategories(categories);
-   // console.log(categories);
+    // console.log(categories);
 
     setRestaurantName(json?.data?.cards[0]?.card?.card?.text);
 
@@ -44,12 +44,15 @@ const RestaurantMenuComponent = () => {
 
   return (
     <div className="text-center">
+      <div className="text-xl my-4 font-semibold">{resName}</div>
+
       {categories.map((category, i) => (
-        <RestaurantCategories 
-        key={category?.card?.card.title} 
-        resMenuInfo={category?.card?.card} 
-        showItems = {i === showIndex ? true : false}
-        setShowIndex={() => setShowIndex(i)} />
+        <RestaurantCategories
+          key={category?.card?.card.title}
+          resMenuInfo={category?.card?.card}
+          showItems={i === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(i)}
+        />
       ))}
     </div>
   );

@@ -84,9 +84,9 @@ const RestaurantMainComponent = () => {
         {filteredRestaurants.map((restaurant) => (
           <Link to={"/restaurant/" + restaurant.id} key={restaurant.id}>
             {restaurant.avgRating >= 4.5 ? (
-              <RestaurantCardPromoted resData={restaurant} />
+              <RestaurantCardPromoted resData={restaurant} key={restaurant.id} />
             ) : (
-              <RestaurantCardComponent resData={restaurant} />
+              <RestaurantCardComponent resData={restaurant} key={restaurant.id} />
             )}
           </Link>
         ))}

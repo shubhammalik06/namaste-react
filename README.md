@@ -30,3 +30,11 @@
 # Lazy Loading using lazy and Suspense
 - const <Component-Name> = lazy(() => import(<component-path>));
 - Router under <Suspense><Component-name></Suspense> : We do this because component takes time to load and the react gets to know we are lazy loading the component.
+
+# Redux Toolkit
+- Install library : npm install @reduxjs/toolkit and react-redux 
+- build our store
+- connect our store to our app
+- slice cart slice
+- dispatch actions
+- selector
